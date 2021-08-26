@@ -3,15 +3,20 @@ extends KinematicBody2D
 export var move_speed : float = 200
 var velocity : Vector2 = Vector2(0,0)
 var coins_collected = 0
-
+var max_coins = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
 func coin_collected():
-	coins_collected += 1
-	print("coin collected")
+	max_coins -= 1
+	if max_coins == 0:
+		get_tree().reload_current_scene()
+	#print("coin collected")
+
+func add_coins():
+	max_coins += 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -12,7 +12,6 @@ func _ready():
 
 
 func _on_Area2D_body_shape_entered(body_id, body, body_shape, local_shape):
-	print(body)
 	if body.is_in_group("Player"):
 		body.coin_collected()
 		queue_free()

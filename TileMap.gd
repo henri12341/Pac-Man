@@ -5,7 +5,7 @@ extends TileMap
 # var b = "text"
 
 onready var astar = AStar2D.new()
-onready var used_cells = get_used_cells_by_id(1)
+var used_cells
 
 var path : PoolVector2Array
 
@@ -24,10 +24,18 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#set_up_pathfinding()
+	pass
+	
+
+func get_tilemap_cells():
+	return used_cells
+
+func set_up_pathfinding():
+	used_cells = get_used_cells_by_id(1)
 	add_points()
 	connect_points()
 	#_connect_diagonal_points()
-
 
 func add_points():
 	for cell in used_cells:
