@@ -2,12 +2,16 @@ extends KinematicBody2D
 
 export var move_speed : float = 200
 var velocity : Vector2 = Vector2(0,0)
+var coins_collected = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
+func coin_collected():
+	coins_collected += 1
+	print("coin collected")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,3 +34,4 @@ func get_input_direction():
 		direction_y += -1
 	
 	return Vector2(direction_x, direction_y)
+
