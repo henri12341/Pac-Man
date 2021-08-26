@@ -20,6 +20,10 @@ func add_coins():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("Enemy"):
+			get_tree().reload_current_scene()
 	var input_dir = get_input_direction()
 	velocity = move_speed * input_dir.normalized()
 	velocity = move_and_slide(velocity)
