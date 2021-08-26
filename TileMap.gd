@@ -10,6 +10,7 @@ onready var used_cells = get_used_cells_by_id(1)
 var path : PoolVector2Array
 
 func _input(event):
+	"""
 	if (event is InputEventMouseButton and event.is_pressed()):
 			var mouse_pos = world_to_map(get_global_mouse_position())
 			if used_cells.has(mouse_pos):
@@ -19,6 +20,7 @@ func _input(event):
 				print("Mouse position: " + str(world_to_map(mouse_pos)))
 				print("Path: " + str(path))
 				print(".........")
+	"""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,7 +46,7 @@ func connect_points():
 
 func _get_path(start, end):
 	path = astar.get_point_path(id(start), id(end))
-	draw_path()
+	#draw_path()
 	return path
 
 func draw_path():

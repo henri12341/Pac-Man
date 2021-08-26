@@ -4,7 +4,7 @@
 [ext_resource path="res://Characters/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 12.0475, 14.663 )
+extents = Vector2( 5.31268, 6.80577 )
 
 [node name="Enemy1" type="KinematicBody2D"]
 script = ExtResource( 2 )

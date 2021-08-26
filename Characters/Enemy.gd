@@ -3,6 +3,8 @@ extends KinematicBody2D
 var navigation
 var player
 var path
+var velocity
+export(int) var move_speed = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,10 +24,11 @@ func generate_path():
 	var player_pos = navigation.world_to_map(player.global_position)
 	var pos = navigation.world_to_map(global_position)
 	path = navigation._get_path(pos, player_pos)
-	print(path)
 
 func navigate():
-	pass
+	if path.size() > 1:
+		velocity = global_position.direction_to(Vector2(path[1][0]*32 + 16,path[1][1]*32 + 16)) * move_speed
+		# If reached destination, remove this point from array
 
 func move():
-	pass
+	velocity = move_and_slide(velocity)
